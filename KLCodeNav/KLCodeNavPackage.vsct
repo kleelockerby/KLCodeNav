@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <Extern href="stdidcmd.h"/>
+  <Extern href="vsshlids.h"/>
+  <Commands package="KLCodeNav">
+
+     <Menus>
+      <Menu guid="KLCodeNavCmdSet" id="CodeNavMenu" priority="0x700" type="Menu">
+        <Parent guid="guidSHLMainMenu" id="IDG_VS_MM_TOOLSADDINS" />
+        <Strings>
+          <ButtonText>KL CodeNav</ButtonText>
+        </Strings>
+      </Menu>
+    </Menus>
+     
+    <Groups>
+      <Group guid="KLCodeNavCmdSet" id="CodeNavMenuGroup" priority="0x0600">
+        <Parent guid="KLCodeNavCmdSet" id="CodeNavMenu" />
+      </Group>
+    </Groups>
+      
+    <Buttons>
+     <Button guid="KLCodeNavCmdSet" id="WpfToolWindowCommandId" type="Button">
+        <Parent guid="KLCodeNavCmdSet" id="CodeNavMenuGroup" />
+        <Icon guid="guidImages" id="bmpPic1" />
+        <Strings>
+          <CommandName>WpfToolWindowCommandId</CommandName>
+          <ButtonText>Wpf Tool Window</ButtonText>
+        </Strings>
+      </Button>
+
+      <Button guid="KLCodeNavCmdSet" id="WinformsToolWindowCommandId" type="Button">
+        <Parent guid="KLCodeNavCmdSet" id="CodeNavMenuGroup" />
+        <Icon guid="guidImages" id="bmpPic2" />
+        <Strings>
+          <CommandName>WinformsToolWindowCommandId</CommandName>
+          <ButtonText>Winforms Tool Window</ButtonText>
+        </Strings>
+      </Button>
+    </Buttons>
+
+    <Bitmaps>
+      <Bitmap guid="guidImages" href="Resources\KLCodeExtensionCommand.png" usedList="bmpPic1, bmpPic2, bmpPic3" />
+    </Bitmaps>
+  </Commands>
+
+  <Symbols>
+    <GuidSymbol name="KLCodeNav" value="{9799008b-e5ed-4f7b-84b1-0f200d78c90c}" />
+
+    <GuidSymbol name="KLCodeNavCmdSet" value="{beca8675-2732-4289-a62b-115c442e79fb}">
+      <IDSymbol name="CodeNavMenu" value="0x1020" />
+      <IDSymbol name="CodeNavMenuGroup" value="0x1021" />
+      <IDSymbol name="WpfToolWindowCommandId" value="0x0101" />
+      <IDSymbol name="WinformsToolWindowCommandId" value="0x0102" />
+    </GuidSymbol>
+
+    <GuidSymbol name="guidImages" value="{b0ee82e9-15e0-4ff0-9835-f0029a942483}" >
+      <IDSymbol name="bmpPic1" value="1" />
+      <IDSymbol name="bmpPic2" value="2" />
+      <IDSymbol name="bmpPic3" value="3" />
+    </GuidSymbol>
+  </Symbols>
+</CommandTable>
