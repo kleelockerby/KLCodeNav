@@ -3,6 +3,7 @@ using System;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Microsoft.VisualStudio.Imaging.Interop;
+using Microsoft.VisualStudio.ComponentModelHost;
 
 namespace KLCodeNav
 {
@@ -22,10 +23,15 @@ namespace KLCodeNav
         public override void OnToolWindowCreated()
         {
             KLCodeNavPackage klCodeNavPackage = Package as KLCodeNavPackage;
-            if (klCodeNavPackage.DTE != null)
+            if ((klCodeNavPackage.DTE != null) && (klCodeNavPackage.DTE2 != null))
             {
                 control.Dte = klCodeNavPackage.DTE;
-                control.CreateProjectItems();
+                control.Dte2 = klCodeNavPackage.DTE2;
+                control.ComponentModel = klCodeNavPackage.ComponentModel;
+                control.ActiveDocument = klCodeNavPackage.ActiveDocument;
+
+                control.CreateAll();
+                //control.CreateProjectItems();
             }
         }
 
