@@ -4,7 +4,6 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Microsoft.VisualStudio.Imaging.Interop;
 using Microsoft.VisualStudio.ComponentModelHost;
-using EnvDTE;
 
 namespace KLCodeNav
 {
@@ -13,8 +12,6 @@ namespace KLCodeNav
     {
         internal const string ToolWindowId = "f8bc7f91-375b-4de1-9a16-a63f9bb5d47a";
         private readonly WinformsToolWindowControl control;
-
-        //private CodeModelManager codeModelManager;
 
         public WinformsToolWindow() : base(null)
         {
@@ -27,15 +24,14 @@ namespace KLCodeNav
         {
             KLCodeNavPackage klCodeNavPackage = Package as KLCodeNavPackage;
             if ((klCodeNavPackage.DTE != null) && (klCodeNavPackage.DTE2 != null))
-            {              
-                //control.Dte = klCodeNavPackage.DTE;
-                //control.CreateProjectItems();
-
-                //control.Dte2 = klCodeNavPackage.DTE2;
-                //control.ComponentModel = klCodeNavPackage.ComponentModel;
-
+            {
+                control.Dte = klCodeNavPackage.DTE;
+                control.Dte2 = klCodeNavPackage.DTE2;
+                control.ComponentModel = klCodeNavPackage.ComponentModel;
                 control.ActiveDocument = klCodeNavPackage.ActiveDocument;
-                control.GetCodeItems();
+
+                control.CreateAll();
+                //control.CreateProjectItems();
             }
         }
 
