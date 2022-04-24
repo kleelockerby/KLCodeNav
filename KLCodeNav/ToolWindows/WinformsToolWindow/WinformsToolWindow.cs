@@ -23,6 +23,7 @@ namespace KLCodeNav
             BitmapImageMoniker = new ImageMoniker { Guid = PackageGuids.guidImages, Id = 2 };
 
             using (DpiAwareness.EnterDpiScope(DpiAwarenessContext.SystemAware))
+            
             using (this.control = new WinformsToolWindowControl())
             {
                 this.control = new WinformsToolWindowControl();
